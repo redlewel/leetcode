@@ -1,6 +1,3 @@
-
-
-
 class Solution:
     def reverseVowels(self, s: str) -> str:
         vowels = 'auieoAEIOU'
@@ -16,7 +13,3 @@ class Solution:
                 newstr = newstr + i
                 
         return newstr
-
-
-problem = Solution()
-print(problem.reverseVowels("IceCreAm"))
