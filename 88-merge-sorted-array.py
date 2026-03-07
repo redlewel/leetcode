@@ -7,29 +7,21 @@ class Solution:
         """
         if m <= 1:
             pass
-        else:
-            for i in range(0, n):
-                self.merge_single(nums1, nums2)
+        for i in range(0, n):
+            print(f"Main loop of {i}")
+            for i1, n1 in enumerate(nums1):
+                if nums2[i] < n1:
+                    step = nums2[i]
+                    index1 = i1
+                    print(f"For: step: {step}, index1: {index1}\nNums1: {nums1} ")
+                    while nums1[index1 + 1] != 0:
+                        temp = nums1[index1]
+                        nums1[index1] = step
+                        step = nums1[index1 + 1]
+                        nums1[index1 + 1] = temp
+                        index1 += 1
 
-
-    @staticmethod 
-    def merge_single(nums1: List[int], nums2: List[int]):
-        for i2, n2 in enumerate(nums2): 
-            for i1, n1 in enumerate(nums1): 
-                if n1 > n2:
-                    print(f"Current Nums1: {nums1}")
-                    step_place = i1 + 1
-                    temp = n1
-                    nums1[i1] = n2
-                    if nums1[step_place] == 0: # If next index is 0 then jump to next n
-                        nums1[step_place] = temp
-                        continue
-                    while nums1[step_place] != 0:
-                        step_temp = nums1[step_place]
-                        nums1[step_place] = temp
-                        temp = step_temp
-                        step_place += 1
+                    print(f"While print\nindex1: {index1} ,step: {step}")
                         
-
 
 
